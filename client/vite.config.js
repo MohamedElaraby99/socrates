@@ -7,7 +7,7 @@ export default defineConfig({
   define: {
     'import.meta.env.VITE_REACT_APP_API_URL': JSON.stringify(
       process.env.NODE_ENV === 'production' 
-        ? 'https://api.the4g.live/api/v1'
+        ? 'https://api.socrates.fikra.solutions/api/v1'
         : (process.env.VITE_REACT_APP_API_URL || 'http://localhost:4015/api/v1')
     )
   }

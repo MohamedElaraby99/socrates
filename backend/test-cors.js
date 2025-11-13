@@ -15,9 +15,9 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:5190',
   'http://127.0.0.1:5190',
-  'https://the4g.live',
-  'https://www.the4g.live',
-  'https://api.the4g.live'
+  'https://socrates.fikra.solutions',
+  'https://www.socrates.fikra.solutions',
+  'https://api.socrates.fikra.solutions'
 ];
 
 console.log('\nAllowed Origins:');
@@ -27,9 +27,9 @@ allowedOrigins.forEach((origin, index) => {
 
 // Test specific problematic origins
 const testOrigins = [
-  'https://the4g.live',
-  'https://api.the4g.live',
-  'https://www.the4g.live'
+  'https://socrates.fikra.solutions',
+  'https://api.socrates.fikra.solutions',
+  'https://www.socrates.fikra.solutions'
 ];
 
 console.log('\nTesting specific origins:');

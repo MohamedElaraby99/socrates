@@ -12,7 +12,7 @@ export const generateFileUrl = (filename, subfolder = '') => {
   if (!filename) return null;
   
   // Get the base URL from environment variables
-  const baseUrl = process.env.BACKEND_URL || `https://api.the4g.live` || `http://localhost:${process.env.PORT || 4015}`;
+  const baseUrl = process.env.BACKEND_URL || `https://api.socrates.fikra.solutions` || `http://localhost:${process.env.PORT || 4015}`;
   
   // Build the path
   let path = '/api/v1/uploads/';
@@ -34,7 +34,7 @@ export const generateProductionFileUrl = (filename, subfolder = '') => {
   if (!filename) return null;
   
   // Always use production domain for now to ensure consistency
-  const baseUrl = process.env.PRODUCTION_URL || 'https://api.the4g.live';
+  const baseUrl = process.env.PRODUCTION_URL || 'https://api.socrates.fikra.solutions';
   
   let path = '/api/v1/uploads/';
   if (subfolder) {

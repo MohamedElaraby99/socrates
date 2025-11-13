@@ -20,7 +20,7 @@ const convertPdfToImages = asyncHandler(async (req, res) => {
     // Extract filename from URL and decode it
     let filename;
     
-    if (pdfUrl.includes('localhost:4015') || pdfUrl.includes('api.the4g.live')) {
+    if (pdfUrl.includes('localhost:4015') || pdfUrl.includes('api.socrates.fikra.solutions')) {
       // Full backend URL provided (development or production)
       const urlParts = pdfUrl.split('/');
       const encodedFilename = urlParts[urlParts.length - 1];

@@ -27,7 +27,7 @@ const getBaseApiUrl = () => {
   }
   
   // Production fallback
-  const prodUrl = 'https://api.the4g.live/api/v1';
+  const prodUrl = 'https://api.socrates.fikra.solutions/api/v1';
   console.log('🌐 FileUtils using production API URL:', prodUrl);
   return prodUrl;
 };

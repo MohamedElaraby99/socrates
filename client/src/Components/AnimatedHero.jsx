@@ -239,7 +239,7 @@ const AnimatedHero = ({ onGetStarted }) => {
                   background: '#2563eb',
                   boxShadow: '0 0 15px rgba(37, 99, 235, 0.8)'
                 }}></div>
-                <FaPlay style={{color: '#FFFFFF'}} /> يلا بنا نبدأ المذاكرة دلوقتي!
+                <FaPlay style={{color: '#FFFFFF'}} /> يلا بينا نبدأ المذاكرة دلوقتي!
               </Link>
             </div>
 

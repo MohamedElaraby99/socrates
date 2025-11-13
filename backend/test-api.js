@@ -1,7 +1,7 @@
 import https from 'https';
 
 const testFeaturedInstructors = async () => {
-  const url = 'https://api.the4g.live/api/v1/instructors/featured?limit=6';
+  const url = 'https://api.socrates.fikra.solutions/api/v1/instructors/featured?limit=6';
 
   console.log('Testing featured instructors API...');
   console.log('URL:', url);
