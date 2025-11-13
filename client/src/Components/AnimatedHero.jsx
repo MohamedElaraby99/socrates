@@ -59,7 +59,7 @@ const AnimatedHero = ({ onGetStarted }) => {
             {/* Title Section */}
             <div className="mt-2">
               {/* Main Title - Egyptian Style */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8" style={{color: darkMode ? '#ffffff' : '#1f2937'}}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8" style={{color: darkMode ? '#60a5fa' : '#2563eb'}}>
                 منصة سنتر سقراط
               </h1>
               
@@ -67,7 +67,7 @@ const AnimatedHero = ({ onGetStarted }) => {
               <div className="mt-6 flex items-center justify-center gap-4 flex-wrap">
                 <FaLightbulb className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" style={{color: '#2563eb'}} />
                 <p className="text-2xl md:text-3xl lg:text-4xl font-medium" style={{color: darkMode ? '#e5e7eb' : '#333333'}}>
-                   منصة تعليم لطلبة المرحلة الابتدائية والمرحلة الإعدادية والمرحلة الثانوية ومعاهد التمريض
+                   منصة تعليم لطلبة المرحلة الابتدائية والإعدادية والثانوية ومعاهد التمريض
                 </p>
                 <FaGraduationCap className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" style={{color: '#2563eb'}} />
               </div>
