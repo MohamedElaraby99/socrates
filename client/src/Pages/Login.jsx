@@ -251,10 +251,21 @@ export default function Login() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-4 px-6 border border-transparent text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-blue-600 via-orange-500 to-blue-600 hover:from-blue-700 hover:via-orange-600 hover:to-blue-700 focus:outline-none focus:ring-4 focus:ring-orange-500/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl shadow-lg overflow-hidden"
+                className="group relative w-full flex justify-center py-4 px-6 border border-transparent text-lg font-semibold rounded-xl text-white focus:outline-none focus:ring-4 focus:ring-blue-500/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl shadow-lg overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #2563eb 100%)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #1e40af 100%)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #2563eb 100%)';
+                }}
               >
                 {/* Button Background Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-orange-500 to-blue-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300" style={{
+                  background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #2563eb 100%)'
+                }}></div>
                 
                 <span className="relative flex items-center gap-3">
                   {isLoading ? (
@@ -271,7 +282,9 @@ export default function Login() {
                 </span>
                 
                 {/* Creative Button Border Animation */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 via-orange-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" style={{
+                  background: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #3b82f6 100%)'
+                }}></div>
               </button>
             </form>
 

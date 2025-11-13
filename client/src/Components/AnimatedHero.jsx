@@ -53,54 +53,186 @@ const AnimatedHero = ({ onGetStarted }) => {
     >
       {/* Thunder & Ice Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Electric Blue Lightning Effects */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-10 left-1/4 w-1 h-32 bg-gradient-to-b from-transparent via-blue-400 to-transparent opacity-60 animate-pulse" style={{
-            filter: 'drop-shadow(0 0 10px #60a5fa)',
-            animation: 'lightning 3s ease-in-out infinite'
+        {/* Animated Lightning Bolts */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          {/* Lightning Bolt 1 - Zigzag Effect */}
+          <svg className="absolute top-10 left-1/4 w-2 h-40 opacity-70 animate-pulse" style={{
+            filter: darkMode ? 'drop-shadow(0 0 15px #60a5fa) drop-shadow(0 0 30px #3b82f6)' : 'drop-shadow(0 0 10px #2563eb)',
+            animation: 'lightning 4s ease-in-out infinite'
+          }}>
+            <path d="M1 0 L0 15 L2 15 L1 30 L0 30 L2 45 L1 60" 
+              stroke={darkMode ? '#60a5fa' : '#2563eb'} 
+              strokeWidth="2" 
+              fill="none"
+              className="animate-pulse"
+            />
+          </svg>
+          
+          {/* Lightning Bolt 2 */}
+          <svg className="absolute top-32 right-1/4 w-2 h-32 opacity-60 animate-pulse animation-delay-2000" style={{
+            filter: darkMode ? 'drop-shadow(0 0 12px #67e8f9) drop-shadow(0 0 25px #06b6d4)' : 'drop-shadow(0 0 8px #0ea5e9)',
+            animation: 'lightning 3.5s ease-in-out infinite'
+          }}>
+            <path d="M1 0 L2 12 L0 12 L1 24 L2 36" 
+              stroke={darkMode ? '#67e8f9' : '#0ea5e9'} 
+              strokeWidth="2.5" 
+              fill="none"
+            />
+          </svg>
+
+          {/* Lightning Bolt 3 - Smaller */}
+          <svg className="absolute bottom-1/3 left-1/3 w-1.5 h-24 opacity-50 animate-pulse animation-delay-4000" style={{
+            filter: darkMode ? 'drop-shadow(0 0 10px #93c5fd)' : 'drop-shadow(0 0 6px #3b82f6)',
+            animation: 'lightning 5s ease-in-out infinite'
+          }}>
+            <path d="M1 0 L0 10 L2 10 L1 20" 
+              stroke={darkMode ? '#93c5fd' : '#3b82f6'} 
+              strokeWidth="2" 
+              fill="none"
+            />
+          </svg>
+
+          {/* Electric Currents - Horizontal */}
+          <div className="absolute top-1/3 right-10 w-32 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 animate-pulse" style={{
+            filter: darkMode ? 'drop-shadow(0 0 8px #60a5fa)' : 'drop-shadow(0 0 4px #2563eb)',
+            animation: 'electricFlow 3s ease-in-out infinite'
           }}></div>
-          <div className="absolute top-20 right-1/3 w-1 h-24 bg-gradient-to-b from-transparent via-cyan-300 to-transparent opacity-50 animate-pulse animation-delay-2000" style={{
-            filter: 'drop-shadow(0 0 8px #67e8f9)'
+          
+          <div className="absolute bottom-1/4 left-20 w-24 h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-40 animate-pulse animation-delay-2000" style={{
+            filter: darkMode ? 'drop-shadow(0 0 6px #67e8f9)' : 'drop-shadow(0 0 3px #0ea5e9)'
           }}></div>
         </div>
 
-        {/* Ice Crystal Shapes */}
-        <div className="absolute top-1/4 right-10 w-32 h-32 opacity-20 animate-float">
+        {/* Ice Crystal Formations - Multiple Sizes */}
+        <div className="absolute top-20 right-16 w-40 h-40 opacity-30 animate-float">
           <div className="w-full h-full" style={{
-            background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)',
+            background: darkMode 
+              ? 'linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%)'
+              : 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%)',
             clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
-            filter: 'drop-shadow(0 0 20px #bfdbfe)'
+            filter: darkMode 
+              ? 'drop-shadow(0 0 25px rgba(96, 165, 250, 0.6))' 
+              : 'drop-shadow(0 0 20px rgba(191, 219, 254, 0.8))'
           }}></div>
         </div>
         
-        <div className="absolute bottom-1/4 left-10 w-24 h-24 opacity-20 animate-float animation-delay-2000">
+        <div className="absolute top-1/3 left-24 w-28 h-28 opacity-25 animate-float animation-delay-2000" style={{
+          animation: 'float 6s ease-in-out infinite'
+        }}>
           <div className="w-full h-full" style={{
-            background: 'linear-gradient(135deg, #bfdbfe 0%, #93c5fd 50%, #60a5fa 100%)',
+            background: darkMode 
+              ? 'linear-gradient(135deg, #93c5fd 0%, #60a5fa 50%, #3b82f6 100%)'
+              : 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%)',
             clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
-            filter: 'drop-shadow(0 0 15px #93c5fd)'
+            filter: darkMode 
+              ? 'drop-shadow(0 0 20px rgba(147, 197, 253, 0.5))' 
+              : 'drop-shadow(0 0 15px rgba(219, 234, 254, 0.7))'
           }}></div>
         </div>
 
-        {/* Thunder Blue Glow */}
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl" style={{
-          background: 'radial-gradient(circle, #2563eb 0%, #1e40af 40%, transparent 70%)',
+        <div className="absolute bottom-1/4 left-16 w-32 h-32 opacity-20 animate-float animation-delay-4000" style={{
+          animation: 'float 7s ease-in-out infinite'
+        }}>
+          <div className="w-full h-full" style={{
+            background: darkMode 
+              ? 'linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1e40af 100%)'
+              : 'linear-gradient(135deg, #bfdbfe 0%, #93c5fd 50%, #60a5fa 100%)',
+            clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
+            filter: darkMode 
+              ? 'drop-shadow(0 0 18px rgba(59, 130, 246, 0.4))' 
+              : 'drop-shadow(0 0 15px rgba(147, 197, 253, 0.6))'
+          }}></div>
+        </div>
+
+        <div className="absolute top-2/3 right-32 w-20 h-20 opacity-25 animate-float animation-delay-3000">
+          <div className="w-full h-full" style={{
+            background: darkMode 
+              ? 'linear-gradient(135deg, #67e8f9 0%, #22d3ee 50%, #06b6d4 100%)'
+              : 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%)',
+            clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)',
+            filter: darkMode 
+              ? 'drop-shadow(0 0 15px rgba(103, 232, 249, 0.4))' 
+              : 'drop-shadow(0 0 12px rgba(186, 230, 253, 0.6))'
+          }}></div>
+        </div>
+
+        {/* Frozen Snowflake Patterns */}
+        <div className="absolute top-40 left-1/2 w-16 h-16 opacity-30 animate-spin" style={{
+          animation: 'spin 20s linear infinite'
+        }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-300 to-cyan-200 blur-sm rounded-full" style={{
+            background: darkMode 
+              ? 'radial-gradient(circle, rgba(96, 165, 250, 0.4) 0%, transparent 70%)'
+              : 'radial-gradient(circle, rgba(219, 234, 254, 0.6) 0%, transparent 70%)'
+          }}></div>
+        </div>
+
+        {/* Thunder Storm Glow - Enhanced */}
+        <div className="absolute top-0 left-0 w-[700px] h-[700px] rounded-full opacity-40 blur-3xl" style={{
+          background: darkMode 
+            ? 'radial-gradient(circle, #2563eb 0%, #1e40af 30%, #1e3a8a 50%, transparent 70%)'
+            : 'radial-gradient(circle, #3b82f6 0%, #2563eb 30%, #93c5fd 50%, transparent 70%)',
           animation: 'pulse 4s ease-in-out infinite'
         }}></div>
         
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl animation-delay-2000" style={{
-          background: 'radial-gradient(circle, #bfdbfe 0%, #dbeafe 40%, transparent 70%)',
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl animation-delay-2000" style={{
+          background: darkMode 
+            ? 'radial-gradient(circle, #06b6d4 0%, #0891b2 30%, #0e7490 50%, transparent 70%)'
+            : 'radial-gradient(circle, #bfdbfe 0%, #dbeafe 30%, #eff6ff 50%, transparent 70%)',
           animation: 'pulse 5s ease-in-out infinite'
         }}></div>
 
-        {/* Electric Particles */}
-        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-blue-400 rounded-full opacity-70 animate-pulse" style={{
-          boxShadow: '0 0 10px #60a5fa, 0 0 20px #60a5fa'
+        <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-3xl animation-delay-4000" style={{
+          background: darkMode 
+            ? 'radial-gradient(circle, #3b82f6 0%, #2563eb 40%, transparent 70%)'
+            : 'radial-gradient(circle, #dbeafe 0%, #bfdbfe 40%, transparent 70%)',
+          animation: 'pulse 6s ease-in-out infinite'
         }}></div>
-        <div className="absolute top-2/3 left-1/3 w-3 h-3 bg-cyan-300 rounded-full opacity-60 animate-pulse animation-delay-2000" style={{
-          boxShadow: '0 0 15px #67e8f9, 0 0 25px #67e8f9'
+
+        {/* Electric Particles - Enhanced */}
+        <div className="absolute top-1/4 right-1/5 w-3 h-3 rounded-full opacity-80 animate-pulse" style={{
+          background: darkMode ? '#60a5fa' : '#2563eb',
+          boxShadow: darkMode 
+            ? '0 0 15px #60a5fa, 0 0 30px #3b82f6, 0 0 45px #2563eb'
+            : '0 0 10px #2563eb, 0 0 20px #3b82f6'
         }}></div>
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-blue-500 rounded-full opacity-80 animate-pulse animation-delay-4000" style={{
-          boxShadow: '0 0 12px #3b82f6, 0 0 22px #3b82f6'
+        
+        <div className="absolute top-2/3 left-1/4 w-4 h-4 rounded-full opacity-70 animate-pulse animation-delay-2000" style={{
+          background: darkMode ? '#67e8f9' : '#0ea5e9',
+          boxShadow: darkMode 
+            ? '0 0 20px #67e8f9, 0 0 35px #22d3ee, 0 0 50px #06b6d4'
+            : '0 0 15px #0ea5e9, 0 0 25px #06b6d4'
+        }}></div>
+        
+        <div className="absolute top-1/2 right-1/3 w-2.5 h-2.5 rounded-full opacity-75 animate-pulse animation-delay-4000" style={{
+          background: darkMode ? '#93c5fd' : '#3b82f6',
+          boxShadow: darkMode 
+            ? '0 0 12px #93c5fd, 0 0 24px #60a5fa, 0 0 36px #3b82f6'
+            : '0 0 12px #3b82f6, 0 0 22px #2563eb'
+        }}></div>
+
+        <div className="absolute bottom-1/3 right-1/4 w-3 h-3 rounded-full opacity-65 animate-pulse animation-delay-3000" style={{
+          background: darkMode ? '#22d3ee' : '#0284c7',
+          boxShadow: darkMode 
+            ? '0 0 18px #22d3ee, 0 0 32px #06b6d4'
+            : '0 0 14px #0284c7, 0 0 24px #0369a1'
+        }}></div>
+
+        {/* Floating Ice Shards */}
+        <div className="absolute top-1/5 right-1/5 w-12 h-1 opacity-40 animate-float" style={{
+          background: darkMode 
+            ? 'linear-gradient(to right, transparent, #60a5fa, transparent)'
+            : 'linear-gradient(to right, transparent, #93c5fd, transparent)',
+          transform: 'rotate(-45deg)',
+          filter: darkMode ? 'drop-shadow(0 0 8px #60a5fa)' : 'drop-shadow(0 0 6px #93c5fd)'
+        }}></div>
+
+        <div className="absolute bottom-1/5 left-1/5 w-16 h-1 opacity-35 animate-float animation-delay-2000" style={{
+          background: darkMode 
+            ? 'linear-gradient(to right, transparent, #67e8f9, transparent)'
+            : 'linear-gradient(to right, transparent, #bae6fd, transparent)',
+          transform: 'rotate(45deg)',
+          filter: darkMode ? 'drop-shadow(0 0 6px #67e8f9)' : 'drop-shadow(0 0 5px #bae6fd)'
         }}></div>
       </div>
 
@@ -138,7 +270,7 @@ const AnimatedHero = ({ onGetStarted }) => {
             <div className="mt-2">
               {/* Main Title - Egyptian Style */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8" style={{color: darkMode ? '#ffffff' : '#1f2937'}}>
-                أهلاً وسهلاً في منصة سنتر سقراط
+                منصة سنتر سقراط
               </h1>
               
               {/* Subtitle - Egyptian Accent */}

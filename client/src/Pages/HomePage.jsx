@@ -766,12 +766,15 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className={`py-20 bg-gradient-to-r from-blue-500 via-orange-600 to-blue-500 transition-all duration-700 ease-out ${
+      <section className={`py-20 transition-all duration-700 ease-out ${
         heroLoaded 
           ? 'opacity-100 translate-y-0' 
           : 'opacity-0 translate-y-8'
       }`}
-      style={{ transitionDelay: '3600ms' }}>
+      style={{ 
+        transitionDelay: '3600ms',
+        background: 'linear-gradient(135deg, #2563eb 0%, #1e40af 50%, #2563eb 100%)'
+      }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className={`transition-all duration-700 ease-out ${
             heroLoaded 
@@ -780,7 +783,7 @@ export default function HomePage() {
           }`}
           style={{ transitionDelay: '3800ms' }}>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                          هل أنت مستعد لبدء رحلة التعلم؟
+              هل أنت مستعد لبدء رحلة التعلم؟
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
               انضم إلى آلاف المتعلمين الذين نجحوا بالفعل في تغيير حياتهم المهنية من خلال موادنا التدريبية التي يقدمها خبراؤنا.
@@ -793,13 +796,22 @@ export default function HomePage() {
           }`}
           style={{ transitionDelay: '4000ms' }}>
             <Link to="/signup">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 via-orange-600 to-blue-500 hover:from-blue-600 hover:via-orange-700 hover:to-blue-600 text-white font-semibold rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+              <button className="px-8 py-4 text-white font-semibold rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300" style={{
+                background: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)',
+                border: '2px solid rgba(255, 255, 255, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)';
+              }}>
                 ابدأ مجاناً
               </button>
             </Link>
             
             <Link to="/qa">
-              <button className="px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
+              <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2 hover:bg-blue-50">
                 <FaQuestionCircle className="w-5 h-5" />
                 اطرح سؤالاً
               </button>
