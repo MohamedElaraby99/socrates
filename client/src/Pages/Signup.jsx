@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { egyptianCities } from "../utils/governorateMapping";
 import { generateDeviceFingerprint, getDeviceType, getBrowserInfo, getOperatingSystem } from "../utils/deviceFingerprint";
 import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
 
 export default function Signup() {
   const dispatch = useDispatch();
@@ -28,6 +29,26 @@ export default function Signup() {
   const [captchaReset, setCaptchaReset] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(true);
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
+  // Listen for theme changes
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setDarkMode(isDark);
+    };
+
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
   const [fieldErrors, setFieldErrors] = useState({});
   const [signupData, setSignupData] = useState({
     fullName: "",
@@ -162,12 +183,8 @@ export default function Signup() {
       errors.push("🔒 يرجى التحقق من رمز الأمان أولاً");
     }
 
-    // Require ID photo for regular users
-    if (!isAdminRegistration) {
-      if (!signupData.idPhoto) {
-        errors.push("🪪 لازم ترفع صورة بطاقة الهوية أو شهادة الميلاد");
-      }
-    }
+    // ID photo is now optional for all users
+    // Removed validation requirement
     
     if (!termsAccepted) {
       errors.push("📋 لازم توافق على الشروط والأحكام الأول");
@@ -458,8 +475,8 @@ export default function Signup() {
                 {/* Logo Container */}
                 <div className="relative bg-white dark:bg-gray-800 rounded-full p-4 shadow-2xl border-4 border-blue-200 dark:border-blue-700 transform hover:scale-110 transition-all duration-500">
                   <img 
-                    src={logo} 
-                    alt="منصة  سنتر سقراط Logo" 
+                    src={darkMode ? logo2 : logo} 
+                    alt="منصة سنتر سقراط Logo" 
                     className="w-16 h-16 object-contain drop-shadow-lg"
                   />
                 </div>
@@ -747,7 +764,7 @@ export default function Signup() {
               {!isAdminRegistration && (
                 <div className="group">
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 text-right">
-                    صورة البطاقة أو شهادة الميلاد *
+                    صورة البطاقة أو شهادة الميلاد (اختياري)
                   </label>
                   <div className="flex items-center space-x-reverse space-x-4">
                     <div className="relative">

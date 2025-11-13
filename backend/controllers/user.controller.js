@@ -112,20 +112,8 @@ const register = async (req, res, next) => {
             // No specific fields needed for admin since we removed email requirement
         }
 
-        // Require ID photo for USER role
-        if (userRole === 'USER') {
-            console.log('=== ID PHOTO VALIDATION DEBUG ===');
-            console.log('req.files:', req.files);
-            console.log('req.files.idPhoto:', req.files?.idPhoto);
-            console.log('req.files.idPhoto[0]:', req.files?.idPhoto?.[0]);
-            const hasIdPhoto = !!(req.files && req.files.idPhoto && req.files.idPhoto[0]);
-            console.log('hasIdPhoto:', hasIdPhoto);
-            if (!hasIdPhoto) {
-                console.log('ID photo validation failed - returning error');
-                return next(new AppError("ID photo is required", 400));
-            }
-            console.log('ID photo validation passed');
-        }
+        // ID photo is now optional for all users
+        // Removed validation requirement - users can register without ID photo
 
         // Save user in the database and log the user in
         const user = await userModel.create(userData);

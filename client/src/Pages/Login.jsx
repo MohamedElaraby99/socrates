@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { BsPersonCircle } from "react-icons/bs";
 import { useDispatch } from "react-redux";
@@ -9,6 +9,7 @@ import InputBox from "../Components/InputBox/InputBox";
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaPhone, FaUserTie, FaSignInAlt } from "react-icons/fa";
 import { generateDeviceFingerprint, getDeviceType, getBrowserInfo, getOperatingSystem } from "../utils/deviceFingerprint";
 import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -17,6 +18,26 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [loginType, setLoginType] = useState('phone'); // 'phone' or 'email'
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
+  // Listen for theme changes
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setDarkMode(isDark);
+    };
+
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
   const [loginData, setLoginData] = useState({
     phoneNumber: "",
     email: "",
@@ -119,8 +140,8 @@ export default function Login() {
                 {/* Logo Container */}
                 <div className="relative bg-white dark:bg-gray-800 rounded-full p-4 shadow-2xl border-4 border-blue-200 dark:border-blue-700 transform hover:scale-110 transition-all duration-500">
                   <img 
-                    src={logo} 
-                    alt="منصة  سنتر سقراط Logo" 
+                    src={darkMode ? logo2 : logo} 
+                    alt="منصة سنتر سقراط Logo" 
                     className="w-16 h-16 object-contain drop-shadow-lg"
                   />
                 </div>
