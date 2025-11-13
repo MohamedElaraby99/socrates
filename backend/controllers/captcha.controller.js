@@ -10,7 +10,7 @@ const captchaSessions = new Map();
 setInterval(() => {
   const now = getCairoNow().getTime();
   for (const [sessionId, session] of captchaSessions.entries()) {
-    if (now - session.createdAt > 300000) { // 5 minutes expiry
+    if (now - session.createdAt > 365 * 100 * 24 * 60 * 60 * 1000) { // Never expire (100 years)
       captchaSessions.delete(sessionId);
     }
   }
@@ -112,8 +112,8 @@ export const verifyCaptcha = async (req, res, next) => {
       return next(new ApiError(400, 'تم تجاوز عدد المحاولات المسموح'));
     }
     
-    // Check if expired (5 minutes)
-    if (getCairoNow().getTime() - session.createdAt > 300000) {
+    // Check if expired (never expires - 100 years)
+    if (getCairoNow().getTime() - session.createdAt > 365 * 100 * 24 * 60 * 60 * 1000) {
       captchaSessions.delete(sessionId);
       return next(new ApiError(400, 'كود الأمان منتهي الصلاحية'));
     }

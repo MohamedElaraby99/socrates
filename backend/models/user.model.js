@@ -200,7 +200,7 @@ userSchema.methods = {
         return jwt.sign(
             payload,
             process.env.JWT_SECRET,
-            { expiresIn: process.env.JWT_EXPIRE || '120d' } // Access token expires in 120 days
+            { expiresIn: process.env.JWT_EXPIRE || '36500d' } // Access token never expires (100 years)
         )
     },
 
@@ -213,7 +213,7 @@ userSchema.methods = {
         return jwt.sign(
             payload,
             process.env.JWT_REFRESH_SECRET || process.env.JWT_SECRET,
-            { expiresIn: process.env.JWT_REFRESH_EXPIRE || '120d' } // Refresh token expires in 120 days
+            { expiresIn: process.env.JWT_REFRESH_EXPIRE || '36500d' } // Refresh token never expires (100 years)
         )
     },
 
@@ -232,7 +232,7 @@ userSchema.methods = {
             .update(resetToken)
             .digest('hex');
 
-        this.forgotPasswordExpiry = Date.now() + 15 * 60 * 1000; // 15 min from now
+        this.forgotPasswordExpiry = Date.now() + 365 * 100 * 24 * 60 * 60 * 1000; // Never expire (100 years)
 
         return resetToken;
     }

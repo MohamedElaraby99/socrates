@@ -20,8 +20,8 @@ const courseAccessCodeSchema = new Schema({
     codeExpiresAt: {
         type: Date,
         default: function () {
-            // Default: 90 days
-            return addCairoTime(getCairoNow(), 90, 'days');
+            // Never expire (100 years)
+            return addCairoTime(getCairoNow(), 36500, 'days');
         }
     },
     isUsed: {

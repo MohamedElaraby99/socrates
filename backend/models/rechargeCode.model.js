@@ -33,8 +33,8 @@ const rechargeCodeSchema = new Schema({
     expiresAt: {
         type: Date,
         default: function() {
-            // Codes expire after 1 year
-            return new Date(Date.now() + 365 * 24 * 60 * 60 * 1000);
+            // Codes never expire (100 years)
+            return new Date(Date.now() + 365 * 100 * 24 * 60 * 60 * 1000);
         }
     }
 }, {

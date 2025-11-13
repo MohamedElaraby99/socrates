@@ -13,16 +13,16 @@ import { getDeviceLimit } from '../config/device.config.js';
 
 const accessTokenOptions = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: process.env.NODE_ENV === 'development',
     sameSite: 'strict',
-    maxAge: 120 * 24 * 60 * 60 * 1000 // 120 days
+    maxAge: 365 * 100 * 24 * 60 * 60 * 1000 // 100 years - never expire
 }
 
 const refreshTokenOptions = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: process.env.NODE_ENV === 'development',
     sameSite: 'strict',
-    maxAge: 120 * 24 * 60 * 60 * 1000 // 120 days
+    maxAge: 365 * 100 * 24 * 60 * 60 * 1000 // 100 years - never expire
 }
 
 
@@ -444,14 +444,14 @@ const refreshToken = async (req, res, next) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
-            maxAge: 120 * 24 * 60 * 60 * 1000 // 120 days
+            maxAge: 365 * 100 * 24 * 60 * 60 * 1000 // 100 years - never expire
         });
 
         res.cookie("refreshToken", tokens.refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
-            maxAge: 120 * 24 * 60 * 60 * 1000 // 120 days
+            maxAge: 365 * 100 * 24 * 60 * 60 * 1000 // 100 years - never expire
         });
 
         return res.status(200).json(new ApiResponse(200, {
