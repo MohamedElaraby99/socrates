@@ -1066,7 +1066,7 @@ export default function HomePage() {
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white">الهاتف</h3>
                   <a href="tel:" className="text-blue-600 dark:text-blue-400 hover:underline">
-                    
+                      +201145446621
                   </a>
                 </div>
               </div>
