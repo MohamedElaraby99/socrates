@@ -12,7 +12,7 @@ export const generateFileUrl = (filename, subfolder = '') => {
   if (!filename) return null;
   
   // Get the base URL from environment variables
-  const baseUrl = process.env.BACKEND_URL || `https://api.socrates.fikra.solutions` || `http://localhost:${process.env.PORT || 4015}`;
+  const baseUrl = process.env.BACKEND_URL || `https://api.socrates.fikra.solutions` || `http://localhost:${process.env.PORT || 4016}`;
   
   // Build the path
   let path = '/api/v1/uploads/';

@@ -77,7 +77,7 @@ const setupEnvironment = async () => {
         }
         
         // Server port
-        const port = await askQuestion("\nEnter server port (default: 4015): ") || "4015";
+        const port = await askQuestion("\nEnter server port (default: 4016): ") || "4016";
         
         // JWT secret
         const jwtSecret = await askQuestion("\nEnter JWT secret (default: api_jwt_secret_2024): ") || "api_jwt_secret_2024";
