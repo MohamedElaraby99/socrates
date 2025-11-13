@@ -3,7 +3,7 @@ import User from './models/user.model.js';
 import InstructorProfile from './models/instructor.model.js';
 
 // Connect to MongoDB
-const MONGODB_URI = 'mongodb://localhost:27017/the4g';
+const MONGODB_URI = 'mongodb://localhost:27017/socrates';
 
 const connectDB = async () => {
   try {

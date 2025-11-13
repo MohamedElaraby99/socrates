@@ -4,7 +4,7 @@ import Instructor from '../models/instructor.model.js';
 // Connect to MongoDB
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/the4g');
+    await mongoose.connect('mongodb://localhost:27017/socrates');
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('MongoDB connection error:', error);

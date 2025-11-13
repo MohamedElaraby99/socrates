@@ -20,7 +20,7 @@ const askQuestion = (question) => {
 
 const connectToDb = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/the4g');
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/socrates');
         console.log('✅ Connected to MongoDB');
     } catch (error) {
         console.error('❌ Failed to connect to MongoDB:', error.message);

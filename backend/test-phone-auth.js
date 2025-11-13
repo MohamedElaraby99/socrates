@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 async function testPhoneAuth() {
     try {
         // Connect to database
-        await mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/the4g');
+        await mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/socrates');
         console.log('Connected to MongoDB');
 
         // Test 1: Create a user with phone number (no email)
