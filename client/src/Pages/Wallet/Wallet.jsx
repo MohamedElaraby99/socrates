@@ -262,11 +262,11 @@ export default function Wallet() {
                                     <ul className="space-y-2 text-blue-800 dark:text-blue-200">
                                         <li className="flex items-start">
                                             <span className="text-blue-600 dark:text-blue-400 ml-2">•</span>
-                                            تواصل معنا على واتساب: <strong> </strong> للحصول على كود شحن
+                                            تواصل معنا على واتساب: <strong>01145446621 </strong> للحصول على كود شحن
                                         </li>
                                         <li className="flex items-start">
                                             <span className="text-blue-600 dark:text-blue-400 ml-2">•</span>
-                                            أو ادفع عبر فودافون كاش: <strong></strong>
+                                            أو ادفع عبر فودافون كاش: <strong>01009924919</strong>
                                         </li>
                                         <li className="flex items-start">
                                             <span className="text-blue-600 dark:text-blue-400 ml-2">•</span>
